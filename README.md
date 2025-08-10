@@ -13,9 +13,9 @@ This project consists of two components:
 ### 1. Index Documents
 ```bash
 cd idx
-dotnet run -- init --index-path ./lucene-index
-dotnet run -- add --id "manual" --title "User Manual" --file "./manual.pdf"
-dotnet run -- add --id "policy" --title "Privacy Policy" --content "Our privacy policy..."
+dotnet run -- init -i ./lucene-index
+dotnet run -- add -d "manual" -t "User Manual" -f "./manual.pdf"
+dotnet run -- add -d "policy" -t "Privacy Policy" -c "Our privacy policy..."
 ```
 
 ### 2. Start MCP Server
@@ -61,14 +61,14 @@ Documents are automatically split into ~250 word chunks with 40 word overlap to 
 
 ```bash
 # Initialize new index
-idx init --index-path ./lucene-index
+idx init -i ./lucene-index
 
 # Add single document
-idx add --id "doc1" --title "Title" --content "Text content"
-idx add --id "doc2" --title "Title" --file "./document.pdf"
+idx add -d "doc1" -t "Title" -c "Text content"
+idx add -d "doc2" -t "Title" -f "./document.pdf"
 
 # Bulk add from JSON
-idx bulk --index-path ./lucene-index --json "./documents.json"
+idx bulk -i ./lucene-index -j "./documents.json"
 ```
 
 ### JSON Format
